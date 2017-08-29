@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>aero.champ.cargospot.ws</groupId>
+    <artifactId>csp-rest-api</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>csp-rest-api [CHAMP Rest API Support]</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <downloadSources>true</downloadSources>
+        <downloadJavadocs>false</downloadJavadocs>
+        <it.skip>true</it.skip>
+        <jdk.version>1.8</jdk.version>
+
+        <!-- Common dependencies -->
+        <version.junit>4.11</version.junit>
+        <version.mockito-all>1.9.5</version.mockito-all>
+        <version.powermock>1.5.1</version.powermock>
+        <version.commons-lang>3.5</version.commons-lang>
+        <version.joda-time>2.9.3</version.joda-time>
+        <version.lombok>1.16.18</version.lombok>
+
+        <!-- Logging dependencies -->
+        <version.slf4j-api>1.7.19</version.slf4j-api>
+        <version.log4j-slf4j-impl>2.5</version.log4j-slf4j-impl>
+
+        <!-- Spring versions -->
+        <version.spring-boot>1.5.4.RELEASE</version.spring-boot>
+        <version.springfox-swagger2>2.6.1</version.springfox-swagger2>
+        <version.springfox-swagger-ui>2.6.1</version.springfox-swagger-ui>
+
+        <!-- CSP Dependencies -->
+        <version.csp-client>17.4.0-SNAPSHOT</version.csp-client>
+        <version.com.oracle>11.2.0.4.0</version.com.oracle>
+        <version.com.zaxxer>2.6.1</version.com.zaxxer>
+
+        <!-- Maven plugins -->
+        <version.maven-war-plugin>2.2</version.maven-war-plugin>
+        <version.maven-jar-plugin>2.5</version.maven-jar-plugin>
+        <version.maven-surefire-plugin>2.12.3</version.maven-surefire-plugin>
+        <version.maven-dependency-plugin>2.4</version.maven-dependency-plugin>
+        <version.maven-compiler-plugin>2.5.1</version.maven-compiler-plugin>
+        <version.maven-eclipse-plugin>2.9</version.maven-eclipse-plugin>
+        <version.exec-maven-plugin>1.2.1</version.exec-maven-plugin>
+        <version.maven-release-plugin>2.4.1</version.maven-release-plugin>
+        <version.maven-clean-plugin>2.6.1</version.maven-clean-plugin>
+        <version.maven-assembly-plugin>2.6</version.maven-assembly-plugin>
+        <version.build-helper-maven-plugin>1.10</version.build-helper-maven-plugin>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${version.spring-boot}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- CSP Dependencies -->
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${version.commons-lang}</version>
+            </dependency>
+            <dependency>
+                <groupId>aero.champ.cargospot.application</groupId>
+                <artifactId>cargospot-client</artifactId>
+                <version>${version.csp-client}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${version.springfox-swagger2}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${version.springfox-swagger-ui}</version>
+            </dependency>
+
+            <!-- LOMBOK -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${version.lombok}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Spring Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
+</project>
