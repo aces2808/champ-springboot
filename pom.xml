@@ -3,10 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>aero.champ.cargospot.ws</groupId>
-    <artifactId>csp-rest-api</artifactId>
+
+    <artifactId>champ-springboot</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>csp-rest-api [CHAMP Rest API Support]</name>
+    <name>champ-springboot [CHAMP Springboot 101]</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -33,11 +34,6 @@
         <version.springfox-swagger2>2.6.1</version.springfox-swagger2>
         <version.springfox-swagger-ui>2.6.1</version.springfox-swagger-ui>
 
-        <!-- CSP Dependencies -->
-        <version.csp-client>17.4.0-SNAPSHOT</version.csp-client>
-        <version.com.oracle>11.2.0.4.0</version.com.oracle>
-        <version.com.zaxxer>2.6.1</version.com.zaxxer>
-
         <!-- Maven plugins -->
         <version.maven-war-plugin>2.2</version.maven-war-plugin>
         <version.maven-jar-plugin>2.5</version.maven-jar-plugin>
@@ -62,7 +58,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- CSP Dependencies -->
 
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -70,12 +65,7 @@
                 <version>${version.commons-lang}</version>
             </dependency>
             <dependency>
-                <groupId>aero.champ.cargospot.application</groupId>
-                <artifactId>cargospot-client</artifactId>
-                <version>${version.csp-client}</version>
-            </dependency>
 
-            <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>${version.springfox-swagger2}</version>
@@ -167,6 +157,8 @@
         </dependency>
     </dependencies>
   <modules>
+
     <module>limfjm-springboot-api</module>
+
   </modules>
 </project>
